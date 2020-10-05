@@ -1,4 +1,4 @@
-package com.cg.hcs.source;
+package com.cg.hcs.dao;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
