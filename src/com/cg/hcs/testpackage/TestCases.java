@@ -8,7 +8,7 @@ public class TestCases {
 	
 	public static void main(String[] args) {
 		IUserDAO userDAO = new UserDAOImpl();
-		/*Users user = new Users("101", "@Pankaj1234", "Pankaj", 9876543211, "pankaj@gmail.com", "user", "Ameerpet");
+		/*Users user = new Users("101", "@Pankaj1234", "Pankaj", 9876543211, "pankaj@gmail.com", "user", null);
 		userDAO.register(user);*/
 	}
 

@@ -20,7 +20,7 @@ public class Users
 	private String email;
 	private String userRole;
 	@OneToMany(cascade = CascadeType.ALL)
-	private List<DiagnosticCenter> centerList;
+	private List<Appointment> appointmentList;
 	
 	
 	
@@ -28,7 +28,7 @@ public class Users
 		super();
 	}
 	public Users(String userId, String userPassword, String userName, Long contactNo, String email, String userRole,
-			List<DiagnosticCenter> centerList) {
+			List<Appointment> appointmentList) {
 		super();
 		this.userId = userId;
 		this.userPassword = userPassword;
@@ -36,7 +36,7 @@ public class Users
 		this.contactNo = contactNo;
 		this.email = email;
 		this.userRole = userRole;
-		this.centerList = centerList;
+		this.appointmentList = appointmentList;
 	}
 	public String getUserId() {
 		return userId;
@@ -74,17 +74,19 @@ public class Users
 	public void setUserRole(String userRole) {
 		this.userRole = userRole;
 	}
-	public List<DiagnosticCenter> getCenterList() {
-		return centerList;
+	public List<Appointment> getAppointmentList() {
+		return appointmentList;
 	}
-	public void setCenterList(List<DiagnosticCenter> centerList) {
-		this.centerList = centerList;
+	public void setAppointmentList(List<Appointment> appointmentList) {
+		this.appointmentList = appointmentList;
 	}
 	@Override
 	public String toString() {
 		return "Users [userId=" + userId + ", userPassword=" + userPassword + ", userName=" + userName + ", contactNo="
-				+ contactNo + ", email=" + email + ", userRole=" + userRole + ", centerList=" + centerList + "]";
+				+ contactNo + ", email=" + email + ", userRole=" + userRole + ", appointmentList=" + appointmentList
+				+ "]";
 	}
+	
 	
 	
 	
