@@ -22,29 +22,27 @@ public class LoginServlet extends HttpServlet {
 		
 		protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-			        String username = request.getParameter("username");
+			        String userName = request.getParameter("username");
 			        String password = request.getParameter("password");
 			        
 			        UserServiceImpl service = new UserServiceImpl();
 			        
 			        
 			        try {
-						if (service.isValidUser(username, password)) {
+			        	String userRole = service.getRoleCode(userName, password);
+						if (userRole!=null) {
 							
-							//We have to retrive the role
-							
-							/*System.out.println("Login succesful.");
-							if(username.equals("admin") && (password.equals("admin"))) {
+							if(userRole.equals("admin")) {
 								HttpSession session =  request.getSession();
-								session.setAttribute("username", username);
+								session.setAttribute("username", userName);
 								response.sendRedirect("WelcomeAdmin.jsp");
 							}
 							else {
 								HttpSession session =  request.getSession();
-								session.setAttribute("username", username);
+								session.setAttribute("username", userName);
 								response.sendRedirect("WelcomeUser.jsp");
 								
-							}*/
+							}
 						  
 						}
 					} catch (Exception e) {

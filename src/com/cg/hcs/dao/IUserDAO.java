@@ -11,8 +11,8 @@ public interface IUserDAO {
 
 	public String register(Users user);
 	
-	public boolean isValidUser(String userName,String password);
-
+	public String getRoleCode(String userName,String password);
+	
 	boolean addCenter(DiagnosticCenter center);
 
 	boolean removeCenter(DiagnosticCenter center);

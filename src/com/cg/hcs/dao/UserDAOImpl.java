@@ -15,16 +15,21 @@ import com.cg.hcs.utility.JpaUtility;
 
 
 public class UserDAOImpl implements IUserDAO{
+	
+	EntityManagerFactory factory = null;
+	
+	EntityManager manager = null;
+	EntityTransaction transaction = null;
 
 
 	
 	@Override
 	public String register(Users user) {
 		
-		EntityManagerFactory factory = JpaUtility.getFactory();
+		factory = JpaUtility.getFactory();
 		
-		EntityManager manager = factory.createEntityManager();
-		EntityTransaction transaction = manager.getTransaction();
+		manager = factory.createEntityManager();
+		transaction = manager.getTransaction();
 
 		transaction.begin();
 		
@@ -46,9 +51,22 @@ public class UserDAOImpl implements IUserDAO{
 	
 	
 	@Override
-	public boolean isValidUser(String userName, String password) {
-		// TODO Auto-generated method stub
-		return false;
+	public String getRoleCode(String userName, String password) {
+		factory = JpaUtility.getFactory();
+		manager = factory.createEntityManager();
+		
+		Users user = null;
+		
+		try {
+				user = manager.find(Users.class, userName);
+			
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}finally {
+			manager.close();
+			factory.close();
+		}
+		return user.getUserRole();
 	}
 	
 	

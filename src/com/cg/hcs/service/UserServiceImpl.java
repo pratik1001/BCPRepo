@@ -8,7 +8,7 @@ import com.cg.hcs.entity.DiagnosticCenter;
 import com.cg.hcs.entity.Test;
 import com.cg.hcs.entity.Users;
 
-public class UserServiceImpl {
+public class UserServiceImpl implements IUserService{
 	IUserDAO userDaoInterface = new UserDAOImpl();
 	public boolean addCenter(DiagnosticCenter center) {
 		return userDaoInterface.addCenter(center);
@@ -32,8 +32,8 @@ public class UserServiceImpl {
 	public String register(Users user) {
 		return userDaoInterface.register(user);
 	}
-	public boolean isValidUser(String userName, String password) {
+	public String getRoleCode(String userName, String password) {
 		// TODO Auto-generated method stub
-		return userDaoInterface.isValidUser(userName, password);
+		return userDaoInterface.getRoleCode(userName, password);
 	}
 }
