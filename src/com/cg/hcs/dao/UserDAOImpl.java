@@ -29,7 +29,7 @@ public class UserDAOImpl implements IUserDAO{
 			manager.persist(user);
 			transaction.commit();
 		} catch (RuntimeException e) {
-			//transaction.rollback();
+			transaction.rollback();
 			System.out.println(e.getMessage());
 			e.printStackTrace();
 		} finally {

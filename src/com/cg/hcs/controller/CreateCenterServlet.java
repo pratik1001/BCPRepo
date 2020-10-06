@@ -22,14 +22,6 @@ public class CreateCenterServlet extends HttpServlet
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
 		String centerName = request.getParameter("centerName");
-		DiagnosticCenter center = new DiagnosticCenter(centerName);
 		
-		EntityManagerFactory factory = JpaUtility.getFactory();
-		EntityManager manager = factory.createEntityManager();
-		EntityTransaction transaction = manager.getTransaction();
-		
-		transaction.begin();
-		manager.persist(center);
-		transaction.commit();
 	}
 }

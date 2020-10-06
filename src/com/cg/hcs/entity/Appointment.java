@@ -14,8 +14,8 @@ public class Appointment
 {
 	@Id
 	private long appointmentId;
-	private java.sql.Date dateTime;
-	private boolean approved;
+	private java.sql.Date appointmentDateTime;
+	private boolean isApproved;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="center", referencedColumnName="center_id")
@@ -34,19 +34,19 @@ public class Appointment
 	}
 
 	public java.sql.Date getDateTime() {
-		return dateTime;
+		return appointmentDateTime;
 	}
 
 	public void setDateTime(java.sql.Date dateTime) {
-		this.dateTime = dateTime;
+		this.appointmentDateTime = dateTime;
 	}
 
 	public boolean isApproved() {
-		return approved;
+		return isApproved;
 	}
 
 	public void setApproved(boolean approved) {
-		this.approved = approved;
+		this.isApproved = approved;
 	}
 
 	public DiagnosticCenter getCenter() {
