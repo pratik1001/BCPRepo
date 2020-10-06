@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.cg.hcs.dao.IUserDAO;
 import com.cg.hcs.dao.UserDAOImpl;
 import com.cg.hcs.entity.Users;
+import com.cg.hcs.service.UserServiceImpl;
 
 
 @WebServlet("/RegisterServlet")
@@ -34,8 +35,9 @@ public class RegisterServlet extends HttpServlet {
 			user.setEmail(request.getParameter("email"));
 			user.setContactNo(Long.parseLong(request.getParameter("contactno")));
 			
+			UserServiceImpl service = new UserServiceImpl();
+			String userId = service.register(user);
 			
-			String userId = userDAO.register(user);
 			if(userId != null) {
 				//Display a message thet user has registered in succefully
 				dispatcher = request.getRequestDispatcher("userHomePage.jsp");
