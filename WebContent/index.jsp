@@ -11,5 +11,6 @@
 		<input type="text" name="centerName">
 		<input type="submit" value="Create Center">
 	</form>
+	<a href="Registration.jsp"><button>Register</button></a>
 </body>
 </html>
