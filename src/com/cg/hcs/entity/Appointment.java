@@ -14,16 +14,42 @@ public class Appointment
 {
 	@Id
 	private long appointmentId;
-	private java.sql.Date dateTime;
-	private boolean approved;
+	private java.sql.Date appointmentDateTime;
+	private boolean isApproved;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="center", referencedColumnName="center_id")
-	private DiagnosticCenter center;
+	private Test test;
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="user", referencedColumnName="userId")
 	private Users user;
+
+	public Appointment() {
+		super();
+	}
+
+
+	public Appointment(java.sql.Date appointmentDateTime, boolean isApproved, Test test, Users user) {
+		super();
+		this.appointmentDateTime = appointmentDateTime;
+		this.isApproved = isApproved;
+		this.test = test;
+		this.user = user;
+	}
+
+	public Appointment(long appointmentId, java.sql.Date appointmentDateTime, boolean isApproved, Test test,
+			Users user) {
+		super();
+		this.appointmentId = appointmentId;
+		this.appointmentDateTime = appointmentDateTime;
+		this.isApproved = isApproved;
+		this.test = test;
+		this.user = user;
+	}
+
+
+
 
 	public long getAppointmentId() {
 		return appointmentId;
@@ -34,29 +60,20 @@ public class Appointment
 	}
 
 	public java.sql.Date getDateTime() {
-		return dateTime;
+		return appointmentDateTime;
 	}
 
 	public void setDateTime(java.sql.Date dateTime) {
-		this.dateTime = dateTime;
+		this.appointmentDateTime = dateTime;
 	}
 
 	public boolean isApproved() {
-		return approved;
+		return isApproved;
 	}
 
 	public void setApproved(boolean approved) {
-		this.approved = approved;
+		this.isApproved = approved;
 	}
-
-	public DiagnosticCenter getCenter() {
-		return center;
-	}
-
-	public void setCenter(DiagnosticCenter center) {
-		this.center = center;
-	}
-
 	public Users getUser() {
 		return user;
 	}
@@ -64,6 +81,29 @@ public class Appointment
 	public void setUser(Users user) {
 		this.user = user;
 	}
+
+	public java.sql.Date getAppointmentDateTime() {
+		return appointmentDateTime;
+	}
+
+	public void setAppointmentDateTime(java.sql.Date appointmentDateTime) {
+		this.appointmentDateTime = appointmentDateTime;
+	}
+
+	public Test getTest() {
+		return test;
+	}
+
+	public void setTest(Test test) {
+		this.test = test;
+	}
+
+	@Override
+	public String toString() {
+		return "Appointment [appointmentId=" + appointmentId + ", appointmentDateTime=" + appointmentDateTime
+				+ ", isApproved=" + isApproved + ", test=" + test + ", user=" + user + "]";
+	}
+	
 	
 	
 }

@@ -22,8 +22,8 @@ public class CreateCenterServlet extends HttpServlet
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
 		String centerName = request.getParameter("centerName");
-		DiagnosticCenter center = new DiagnosticCenter(centerName);
 		
+<<<<<<< HEAD
 		
 		  EntityManagerFactory factory = JpaUtility.getFactory(); EntityManager manager
 		  = factory.createEntityManager(); EntityTransaction transaction =
@@ -31,5 +31,7 @@ public class CreateCenterServlet extends HttpServlet
 		  
 		  transaction.begin(); manager.persist(center); transaction.commit();
 		 
+=======
+>>>>>>> branch 'master' of https://github.com/UradiBhavani/HealthCareSystem
 	}
 }
