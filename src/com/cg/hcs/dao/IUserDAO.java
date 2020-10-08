@@ -1,14 +1,7 @@
 package com.cg.hcs.dao;
 
-<<<<<<< HEAD
+
 import com.cg.hcs.entity.Users;
-
-public interface IUserDAO {
-	
-	public String register(Users user); 
-
-}
-=======
 import java.time.LocalDateTime;
 
 
@@ -35,4 +28,4 @@ public interface IUserDAO {
 	String makeAppointment(Users user, DiagnosticCenter test, LocalDateTime datetime);
 
 }
->>>>>>> branch 'master' of https://github.com/UradiBhavani/HealthCareSystem
+

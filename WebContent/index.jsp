@@ -12,5 +12,9 @@
 		<input type="submit" value="Create Center">
 	</form>
 	<a href="Registration.jsp"><button>Register</button></a>
+	<br><h1><%
+		if(request.getAttribute("centerId")!=null)
+			out.println(request.getAttribute("centerId"));
+	%></h1>
 </body>
 </html>

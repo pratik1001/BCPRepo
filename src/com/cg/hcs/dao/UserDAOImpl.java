@@ -1,6 +1,6 @@
 package com.cg.hcs.dao;
 
-<<<<<<< HEAD
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -11,37 +11,6 @@ import com.cg.hcs.utility.JpaUtility;
 
 
 
-public class UserDAOImpl implements IUserDAO{
-
-
-	
-	@Override
-	public String register(Users user) {
-		
-		EntityManagerFactory factory = JpaUtility.getFactory();
-		
-		EntityManager manager = factory.createEntityManager();
-		EntityTransaction transaction = manager.getTransaction();
-
-		transaction.begin();
-		
-		
-		try {
-			manager.persist(user);
-			transaction.commit();
-		} catch (RuntimeException e) {
-			//transaction.rollback();
-			System.out.println(e.getMessage());
-			e.printStackTrace();
-		} finally {
-			manager.close();
-			factory.close();
-		}
-		return user.getUserId();
-	}
-	
-}
-=======
 import java.time.LocalDateTime;
 
 import javax.persistence.EntityManager;
@@ -157,4 +126,4 @@ public class UserDAOImpl implements IUserDAO{
 	
 	
 }
->>>>>>> branch 'master' of https://github.com/UradiBhavani/HealthCareSystem
+

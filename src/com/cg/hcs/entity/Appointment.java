@@ -1,28 +1,27 @@
 package com.cg.hcs.entity;
 
-import java.util.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
+
 
 @Entity
 public class Appointment 
 {
 	@Id
-	private long appointmentId;
-	private java.sql.Date appointmentDateTime;
-	private boolean isApproved;
+	private int appointmentId;
+	private String appointmentDateTime;
+	private char isApproved;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name="center", referencedColumnName="center_id")
+	@JoinColumn(name="testId", referencedColumnName="testId")
 	private Test test;
 	
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name="user", referencedColumnName="userId")
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name="userId", referencedColumnName="userId")
 	private Users user;
 
 	public Appointment() {
@@ -30,7 +29,7 @@ public class Appointment
 	}
 
 
-	public Appointment(java.sql.Date appointmentDateTime, boolean isApproved, Test test, Users user) {
+	public Appointment(String appointmentDateTime, char isApproved, Test test, Users user) {
 		super();
 		this.appointmentDateTime = appointmentDateTime;
 		this.isApproved = isApproved;
@@ -38,7 +37,7 @@ public class Appointment
 		this.user = user;
 	}
 
-	public Appointment(long appointmentId, java.sql.Date appointmentDateTime, boolean isApproved, Test test,
+	public Appointment(int appointmentId, String appointmentDateTime, char isApproved, Test test,
 			Users user) {
 		super();
 		this.appointmentId = appointmentId;
@@ -51,27 +50,21 @@ public class Appointment
 
 
 
-	public long getAppointmentId() {
+	public int getAppointmentId() {
 		return appointmentId;
 	}
 
-	public void setAppointmentId(long appointmentId) {
+	public void setAppointmentId(int appointmentId) {
 		this.appointmentId = appointmentId;
 	}
 
-	public java.sql.Date getDateTime() {
-		return appointmentDateTime;
-	}
 
-	public void setDateTime(java.sql.Date dateTime) {
-		this.appointmentDateTime = dateTime;
-	}
 
-	public boolean isApproved() {
+	public char isApproved() {
 		return isApproved;
 	}
 
-	public void setApproved(boolean approved) {
+	public void setApproved(char approved) {
 		this.isApproved = approved;
 	}
 	public Users getUser() {
@@ -82,11 +75,11 @@ public class Appointment
 		this.user = user;
 	}
 
-	public java.sql.Date getAppointmentDateTime() {
+	public String getAppointmentDateTime() {
 		return appointmentDateTime;
 	}
 
-	public void setAppointmentDateTime(java.sql.Date appointmentDateTime) {
+	public void setAppointmentDateTime(String appointmentDateTime) {
 		this.appointmentDateTime = appointmentDateTime;
 	}
 

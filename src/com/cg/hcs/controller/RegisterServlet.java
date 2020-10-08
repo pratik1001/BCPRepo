@@ -12,10 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.cg.hcs.dao.IUserDAO;
 import com.cg.hcs.dao.UserDAOImpl;
 import com.cg.hcs.entity.Users;
-<<<<<<< HEAD
-=======
 import com.cg.hcs.service.UserServiceImpl;
->>>>>>> branch 'master' of https://github.com/UradiBhavani/HealthCareSystem
+
 
 
 @WebServlet("/RegisterServlet")

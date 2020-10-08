@@ -2,9 +2,17 @@ package com.cg.hcs.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Parameter;
 
+import com.cg.hcs.utility.StringSequenceIdGenerator;
+
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -13,18 +21,35 @@ import javax.persistence.CascadeType;
 public class DiagnosticCenter 
 {
 	@Id
-	@Column(name="center_id")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "center_seq")
+    @GenericGenerator(
+        name = "center_seq", 
+        strategy = "com.cg.hcs.utility.StringSequenceIdGenerator", 
+        parameters = {
+            @Parameter(name = StringSequenceIdGenerator.INCREMENT_PARAM, value = "50"),
+            @Parameter(name = StringSequenceIdGenerator.VALUE_PREFIX_PARAMETER, value = "C_"),
+            @Parameter(name = StringSequenceIdGenerator.NUMBER_FORMAT_PARAMETER, value = "%05d") })
+	@Column(name = "center_id")
 	private String centerId;
 	private String centerName;
 	@OneToMany(cascade = CascadeType.ALL)
 	private List<Test> listOfTests;
 	@OneToMany(cascade = CascadeType.ALL)
 	private List<Appointment> listOfAppointments;
-	public DiagnosticCenter(String centerName) {
+	
+	public DiagnosticCenter(String centerName) 
+	{
 		super();
-		this.centerId = "C000001";
-		
 		this.centerName = centerName;
+		Test defaultTest1 = new Test("A",this);
+		Test defaultTest2 = new Test("B",this);
+		Test defaultTest3 = new Test("C",this);
+		ArrayList<Test> listOfTests = new ArrayList<Test>();
+		listOfTests.add(defaultTest1);
+		listOfTests.add(defaultTest2);
+		listOfTests.add(defaultTest3);
+		
+		this.listOfTests = listOfTests;
 	}
 	public String getCenterId() {
 		return centerId;
