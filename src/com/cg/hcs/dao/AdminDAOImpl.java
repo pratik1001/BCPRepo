@@ -6,6 +6,7 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.PersistenceException;
 
 import com.cg.hcs.entity.DiagnosticCenter;
+import com.cg.hcs.entity.Test;
 import com.cg.hcs.exception.HCSException;
 import com.cg.hcs.utility.JpaUtility;
 
@@ -38,6 +39,26 @@ public class AdminDAOImpl implements IAdminDAO
 		return center.getCenterId();
 		
 		
+	}
+	@Override
+	public boolean deleteCenter(DiagnosticCenter center) throws HCSException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	@Override
+	public String addTest(Test test) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public boolean removeTest(Test test) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	@Override
+	public boolean approveAppointment() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }

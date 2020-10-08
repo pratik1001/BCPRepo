@@ -18,8 +18,12 @@ public class UserServiceImpl implements IUserService{
 	public String register(Users user) {
 		return userDaoInterface.register(user);
 	}
-	public String getRoleCode(String userName, String password) {
+	public String getRoleCode(String userId) {
 		// TODO Auto-generated method stub
-		return userDaoInterface.getRoleCode(userName, password);
+		return userDaoInterface.getRoleCode(userId);
+	}
+	public boolean validateUser(String userId, String password) {
+		// TODO Auto-generated method stub
+		return userDaoInterface.validateUser(userId, password);
 	}
 }

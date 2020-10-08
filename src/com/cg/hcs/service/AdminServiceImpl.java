@@ -29,6 +29,7 @@ public class AdminServiceImpl implements IAdminService
 	}
 
 	@Override
+
 	public List<DiagnosticCenter> viewAllCenters() {
 		// TODO Auto-generated method stub
 		return null;
@@ -38,6 +39,25 @@ public class AdminServiceImpl implements IAdminService
 	public String addTest(Test test) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	public boolean deleteCenter(DiagnosticCenter center) throws HCSException {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	
+
+	@Override
+	public boolean removeTest(Test test) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean approveAppointment() 
+	{
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }

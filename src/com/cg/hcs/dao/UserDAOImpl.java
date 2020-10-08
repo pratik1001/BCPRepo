@@ -34,6 +34,8 @@ public class UserDAOImpl implements IUserDAO{
 
 
 	
+
+	
 	@Override
 	public String register(Users user) {
 		
@@ -62,33 +64,58 @@ public class UserDAOImpl implements IUserDAO{
 	
 	
 	@Override
-	public String getRoleCode(String userName, String password) {
+	public String getRoleCode(String userId) {
+		
 		factory = JpaUtility.getFactory();
 		manager = factory.createEntityManager();
-		
 		Users user = null;
+
 		
 		try {
-				user = manager.find(Users.class, userName);
-			
+				user = manager.find(Users.class, userId);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}finally {
-			manager.close();
-			factory.close();
+			
+			//manager.close();
+			//factory.close();
 		}
 		return user.getUserRole();
 	}
+
+
+
+	@Override
+	public boolean validateUser(String userId, String password) {
+		factory = JpaUtility.getFactory();
+		manager = factory.createEntityManager();
+		Users user = null;
+		
+		try {
+				user = manager.find(Users.class, userId);
+				if(user.getUserPassword().equals(password))
+					return true;
+				else
+					return false;
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}finally {
+			//manager.close();
+			//factory.close();
+		}
+		return false;
+	}
 	
+
 	
 
 	@Override
-	public String makeAppointment(Users user, DiagnosticCenter test, String datetime) {
-		// TODO Auto-generated method stub
+	public String makeAppointment(Users user, DiagnosticCenter test, String datetime) 
+	{
+		//To DO work
 		return null;
 	}
-
-	
+		
 	
 }
 

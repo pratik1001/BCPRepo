@@ -8,10 +8,9 @@
 </head>
 <body>
 	<form action = "LoginServlet" method = "post">
-		Username: <input type = "text" name = "username"></input><br>
+		UserId: <input type = "text" name = "userid"></input><br>
 		Password: <input type = "password" name = "password"></input><br>
 		<input type = "submit" value = "submit">
 	</form>
-
 </body>
 </html>

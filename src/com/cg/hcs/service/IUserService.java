@@ -9,10 +9,14 @@ import com.cg.hcs.entity.Users;
 public interface IUserService {
 	
 	
+
 	public String makeAppointment(Users user, DiagnosticCenter test, String datetime);
+
 	
 	public String register(Users user);
 	
-	public String getRoleCode(String userName, String password);
+	public boolean validateUser(String userId, String password);
+	
+	public String getRoleCode(String userId);
 
 }
