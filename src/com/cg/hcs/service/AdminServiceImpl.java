@@ -40,8 +40,18 @@ public class AdminServiceImpl implements IAdminService
 		// TODO Auto-generated method stub
 		return null;
 	}
-	public boolean deleteCenter(DiagnosticCenter center) throws HCSException {
-		// TODO Auto-generated method stub
+	
+	public boolean deleteCenter(DiagnosticCenter center) 
+	{
+		IAdminDAO adminDAO = new AdminDAOImpl();
+		try 
+		{
+			return adminDAO.deleteCenter(center);
+		} 
+		catch (HCSException e) 
+		{
+			System.out.println(e.getMessage());
+		}
 		return false;
 	}
 

@@ -12,8 +12,8 @@ import javax.persistence.ManyToOne;
 public class Appointment 
 {
 	@Id
-	private int appointmentId;
-	private String appointmentDateTime;
+	private int appId;
+	private String appDate;
 	private char isApproved;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
@@ -29,19 +29,19 @@ public class Appointment
 	}
 
 
-	public Appointment(String appointmentDateTime, char isApproved, Test test, Users user) {
+	public Appointment(String appDate, char isApproved, Test test, Users user) {
 		super();
-		this.appointmentDateTime = appointmentDateTime;
+		this.appDate = appDate;
 		this.isApproved = isApproved;
 		this.test = test;
 		this.user = user;
 	}
 
-	public Appointment(int appointmentId, String appointmentDateTime, char isApproved, Test test,
+	public Appointment(int appId, String appDate, char isApproved, Test test,
 			Users user) {
 		super();
-		this.appointmentId = appointmentId;
-		this.appointmentDateTime = appointmentDateTime;
+		this.appId = appId;
+		this.appDate = appDate;
 		this.isApproved = isApproved;
 		this.test = test;
 		this.user = user;
@@ -51,11 +51,11 @@ public class Appointment
 
 
 	public int getAppointmentId() {
-		return appointmentId;
+		return appId;
 	}
 
 	public void setAppointmentId(int appointmentId) {
-		this.appointmentId = appointmentId;
+		this.appId = appointmentId;
 	}
 
 
@@ -76,11 +76,11 @@ public class Appointment
 	}
 
 	public String getAppointmentDateTime() {
-		return appointmentDateTime;
+		return appDate;
 	}
 
 	public void setAppointmentDateTime(String appointmentDateTime) {
-		this.appointmentDateTime = appointmentDateTime;
+		this.appDate = appointmentDateTime;
 	}
 
 	public Test getTest() {
@@ -93,7 +93,7 @@ public class Appointment
 
 	@Override
 	public String toString() {
-		return "Appointment [appointmentId=" + appointmentId + ", appointmentDateTime=" + appointmentDateTime
+		return "Appointment [appointmentId=" + appId + ", appointmentDateTime=" + appDate
 				+ ", isApproved=" + isApproved + ", test=" + test + ", user=" + user + "]";
 	}
 	

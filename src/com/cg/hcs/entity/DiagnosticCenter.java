@@ -32,10 +32,21 @@ public class DiagnosticCenter
 	@Column(name = "center_id")
 	private String centerId;
 	private String centerName;
-	@OneToMany(cascade = CascadeType.ALL)
+	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Test> listOfTests;
-	@OneToMany(cascade = CascadeType.ALL)
-	private List<Appointment> listOfAppointments;
+	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<Appointment> listOfApps;
+	
+	
+	
+	public DiagnosticCenter() {
+		super();
+	}
+
+	public DiagnosticCenter(String centerId,String purpose)
+	{
+		this.centerId = centerId;
+	}
 	
 	public DiagnosticCenter(String centerName) 
 	{
@@ -51,6 +62,9 @@ public class DiagnosticCenter
 		
 		this.listOfTests = listOfTests;
 	}
+	
+	
+	
 	public String getCenterId() {
 		return centerId;
 	}
@@ -70,10 +84,10 @@ public class DiagnosticCenter
 		this.listOfTests = listOfTests;
 	}
 	public List<Appointment> getListOfAppointments() {
-		return listOfAppointments;
+		return listOfApps;
 	}
 	public void setListOfAppointments(List<Appointment> listOfAppointments) {
-		this.listOfAppointments = listOfAppointments;
+		this.listOfApps = listOfAppointments;
 	}
 	
 	

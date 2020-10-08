@@ -41,9 +41,33 @@ public class AdminDAOImpl implements IAdminDAO
 		
 	}
 	@Override
-	public boolean deleteCenter(DiagnosticCenter center) throws HCSException {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean deleteCenter(DiagnosticCenter center) throws HCSException 
+	{
+		EntityManager manager = factory.createEntityManager();
+		EntityTransaction transaction = manager.getTransaction();
+		
+		try
+		{
+			transaction.begin();
+			DiagnosticCenter centerFetched = manager.find(DiagnosticCenter.class, center.getCenterId());
+			if(centerFetched == null)
+				return false;
+			manager.remove(centerFetched);
+			transaction.commit();
+			return true;
+			
+		}
+		catch (PersistenceException e) 
+		{
+			throw new HCSException("Error while removing the center");
+			
+		}
+		finally
+		{
+			manager.close();
+		}
+		
+		
 	}
 	@Override
 	public String addTest(Test test) {

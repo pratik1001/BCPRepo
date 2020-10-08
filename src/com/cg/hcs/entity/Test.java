@@ -34,6 +34,15 @@ public class Test
 	public Test() {
 		super();
 	}
+	
+	
+	
+	public Test(String testId) {
+		super();
+		this.testId = testId;
+	}
+
+
 
 	public Test(String testName, DiagnosticCenter center) {
 		super();

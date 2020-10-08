@@ -17,7 +17,7 @@ public interface IAdminService
 	public String addTest(Test test);
 	
 
-	public boolean deleteCenter(DiagnosticCenter center) throws HCSException;
+	public boolean deleteCenter(DiagnosticCenter center);
 	
 	
 
