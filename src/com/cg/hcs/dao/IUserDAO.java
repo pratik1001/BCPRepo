@@ -15,17 +15,9 @@ public interface IUserDAO {
 	
 	public String getRoleCode(String userName,String password);
 	
-	boolean addCenter(DiagnosticCenter center);
 
-	boolean removeCenter(DiagnosticCenter center);
 
-	String addTest(Test test);
-
-	boolean removeTest(Test test);
-
-	boolean approveAppointment();
-
-	String makeAppointment(Users user, DiagnosticCenter test, LocalDateTime datetime);
+	String makeAppointment(Users user, DiagnosticCenter test, String datetime);
 
 }
 

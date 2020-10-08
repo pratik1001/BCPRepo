@@ -1,15 +1,25 @@
 package com.cg.hcs.testpackage;
 
-import com.cg.hcs.dao.IUserDAO;
-import com.cg.hcs.dao.UserDAOImpl;
-import com.cg.hcs.entity.Users;
+import static org.junit.Assert.assertNotNull;
+
+import org.junit.Test;
+
+
+import com.cg.hcs.entity.DiagnosticCenter;
+
+import com.cg.hcs.service.AdminServiceImpl;
+import com.cg.hcs.service.IAdminService;
 
 public class TestCases {
-	
-	public static void main(String[] args) {
-		IUserDAO userDAO = new UserDAOImpl();
-		/*Users user = new Users("101", "@Pankaj1234", "Pankaj", 9876543211, "pankaj@gmail.com", "user", null);
-		userDAO.register(user);*/
-	}
 
+	
+	
+	@Test
+	public void testAddCenter()
+	{
+		IAdminService adminService = new AdminServiceImpl();
+		DiagnosticCenter center = new DiagnosticCenter("Sample Diagnostic Center");
+		String centerId = adminService.addCenter(center);
+		assertNotNull(centerId);
+	}
 }

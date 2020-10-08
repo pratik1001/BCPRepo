@@ -41,9 +41,9 @@ public class DiagnosticCenter
 	{
 		super();
 		this.centerName = centerName;
-		Test defaultTest1 = new Test("A",this);
-		Test defaultTest2 = new Test("B",this);
-		Test defaultTest3 = new Test("C",this);
+		Test defaultTest1 = new Test("Blood Group",this);
+		Test defaultTest2 = new Test("Blood Sugar",this);
+		Test defaultTest3 = new Test("Blood Pressure",this);
 		ArrayList<Test> listOfTests = new ArrayList<Test>();
 		listOfTests.add(defaultTest1);
 		listOfTests.add(defaultTest2);
