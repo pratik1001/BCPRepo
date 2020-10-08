@@ -13,18 +13,10 @@ public interface IUserDAO {
 
 	public String register(Users user);
 	
-	public String getRoleCode(String userName,String password);
+	public boolean validateUser(String userId, String password);
 	
-	boolean addCenter(DiagnosticCenter center);
-
-	boolean removeCenter(DiagnosticCenter center);
-
-	String addTest(Test test);
-
-	boolean removeTest(Test test);
-
-	boolean approveAppointment();
-
+	public String getRoleCode(String userId);
+	
 	String makeAppointment(Users user, DiagnosticCenter test, LocalDateTime datetime);
 
 }
